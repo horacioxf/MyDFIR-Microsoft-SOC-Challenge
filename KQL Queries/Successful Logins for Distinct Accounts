@@ -1,0 +1,6 @@
+This query was used to detect any succesful logins from distinct accounts that had massive failed brute force attempts.
+
+SecurityEvent
+|where EventID == "4624"
+|where Account has_any (@"\admin", @"\ADMIN", @"\administrator", @"\ADMINISTRATOR") 
+|project Account 
