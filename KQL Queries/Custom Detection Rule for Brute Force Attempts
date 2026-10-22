@@ -1,0 +1,4 @@
+SecurityEvent
+|where EventID == "4625"
+|summarize FailedLogons = count() by Account
+|where FailedLogons >= 1000
